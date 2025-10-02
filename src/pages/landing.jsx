@@ -8,6 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const LandingPage = () => {
   const [longUrl, setLongUrl] = useState("");
@@ -24,6 +25,16 @@ const LandingPage = () => {
       Got a boring long URL  ?<br /> 
         <span className="block mt-4 text-[#7F57F1]">Let&apos;s shrink it!</span>
       </h2>
+
+      <Tabs defaultValue="account" className="w-[400px]">
+      <TabsList>
+        <TabsTrigger value="account">Account</TabsTrigger>
+        <TabsTrigger value="password">Password</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account">Make changes to your account here.</TabsContent>
+      <TabsContent value="password">Change your password here.</TabsContent>
+      </Tabs>
+
       <form
         onSubmit={handleShorten}
         className="sm:h-14 flex flex-col sm:flex-row w-full md:w-2/4 gap-2"
