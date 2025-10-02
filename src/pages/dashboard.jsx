@@ -3,8 +3,6 @@
 import {useEffect, useState} from "react";
 import {BarLoader} from "react-spinners";
 import {Filter} from "lucide-react";
-
-import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {Input} from "@/components/ui/input";
 import {CreateLink} from "@/components/create-link";
 import LinkCard from "@/components/link-card";
@@ -42,27 +40,17 @@ const Dashboard = () => {
   }, [urls?.length]);
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 py-6 px-8">
       {(loading || loadingClicks) && (
         <BarLoader width={"100%"} color="#36d7b7" />
       )}
-      <div className="grid grid-cols-2 gap-4">
-        <Card>
-          <CardHeader>
-            <CardTitle>Links Created</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p>{urls?.length}</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>Total Clicks</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p>{clicks?.length}</p>
-          </CardContent>
-        </Card>
+      <div className="flex justify-between">
+        <div>
+        <h1 className="text-4xl font-extrabold">Links Created : {urls?.length}</h1>
+        </div>
+        <div>
+          <h1 className="text-4xl font-extrabold">Total Clicks : {clicks?.length}</h1>
+        </div>
       </div>
       <div className="flex justify-between">
         <h1 className="text-4xl font-extrabold">My Links</h1>
@@ -71,7 +59,8 @@ const Dashboard = () => {
       <div className="relative">
         <Input
           type="text"
-          placeholder="Filter Links..."
+          placeholder="Filter Links..." 
+          className="bg-white"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />

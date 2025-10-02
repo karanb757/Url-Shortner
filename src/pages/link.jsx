@@ -70,15 +70,15 @@ const LinkPage = () => {
       {(loading || loadingStats) && (
         <BarLoader className="mb-4" width={"100%"} color="#36d7b7" />
       )}
-      <div className="flex flex-col gap-8 sm:flex-row justify-between">
+      <div className="flex flex-col gap-4 sm:flex-row justify-between pl-10 pt-8">
         <div className="flex flex-col items-start gap-8 rounded-lg sm:w-2/5">
-          <span className="text-6xl font-extrabold hover:underline cursor-pointer">
+          <span className="text-4xl font-extrabold cursor-pointer">
             {url?.title}
           </span>
           <a
             href={`https://trimrr.in/${link}`}
             target="_blank"
-            className="text-3xl sm:text-4xl text-blue-400 font-bold hover:underline cursor-pointer"
+            className="text-3xl sm:text-4xl text-blue-400 font-bold cursor-pointer"
           >
             https://trimrr.in/{link}
           </a>
@@ -93,34 +93,37 @@ const LinkPage = () => {
           <span className="flex items-end font-extralight text-sm">
             {new Date(url?.created_at).toLocaleString()}
           </span>
+
           <div className="flex gap-2">
-            <Button
-              variant="ghost"
-              onClick={() =>
-                navigator.clipboard.writeText(`https://trimrr.in/${link}`)
-              }
-            >
-              <Copy />
-            </Button>
-            <Button variant="ghost" onClick={downloadImage}>
-              <Download />
-            </Button>
-            <Button
-              variant="ghost"
-              onClick={() =>
-                fnDelete().then(() => {
-                  navigate("/dashboard");
-                })
-              }
-              disable={loadingDelete}
-            >
-              {loadingDelete ? (
-                <BeatLoader size={5} color="white" />
-              ) : (
-                <Trash />
-              )}
-            </Button>
+          <Button
+          className="bg-white hover:bg-white hover:border-2 w-10 h-10 flex items-center justify-center"
+          onClick={() =>
+            navigator.clipboard.writeText(`https://trimrr.in/${link}`)
+          }
+          >
+          <Copy />
+          </Button>
+
+          <Button 
+          className="bg-white hover:bg-white hover:border-2 w-10 h-10 flex items-center justify-center"
+          variant="ghost" 
+          onClick={downloadImage}
+          >
+          <Download />
+          </Button>
+
+          <Button
+          className="bg-white hover:bg-white hover:border-2 w-10 h-10 flex items-center justify-center"
+          onClick={() =>
+            fnDelete().then(() => {
+              navigate("/dashboard");
+            })
+          }
+          >
+          <Trash />
+          </Button>
           </div>
+          
           <img
             src={url?.qr}
             className="w-full self-center sm:self-start ring ring-blue-500 p-1 object-contain"
@@ -128,7 +131,7 @@ const LinkPage = () => {
           />
         </div>
 
-        <Card className="sm:w-3/5">
+        <Card className="sm:w-3/5 bg-white">
           <CardHeader>
             <CardTitle className="text-4xl font-extrabold">Stats</CardTitle>
           </CardHeader>
