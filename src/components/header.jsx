@@ -23,16 +23,16 @@ const Header = () => {
 
   return (
     <>
-      <nav className="py-4 flex justify-between items-center">
+      <nav className="flex justify-between items-center px-6">
         <Link to="/">
-          <img src="/logo.png" className="h-16" alt="Trimrr Logo" />
+          <img src="/www-click.png" className="h-16 mt-2" alt="Trimrr Logo" />
         </Link>
         <div className="flex gap-4">
           {!user ? (
             <Button onClick={() => navigate("/auth")}>Login</Button>
           ) : (
             <DropdownMenu>
-              <DropdownMenuTrigger className="w-10 rounded-full overflow-hidden">
+              <DropdownMenuTrigger className="w-12 h-12 rounded-full overflow-hidden">
                 <Avatar>
                   <AvatarImage src={user?.user_metadata?.profile_pic} />
                   <AvatarFallback>PA</AvatarFallback>

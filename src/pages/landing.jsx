@@ -20,8 +20,9 @@ const LandingPage = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <h2 className="my-10 sm:my-16 text-3xl sm:text-6xl lg:text-7xl text-white text-center font-extrabold">
-        The only URL Shortener <br /> you&rsquo;ll ever need! 👇
+      <h2 className="my-10 sm:my-16 text-3xl sm:text-6xl lg:text-7xl text-[#111828] text-center font-extrabold ">
+      Got a boring long URL  ?<br /> 
+        <span className="block mt-4 text-[#7F57F1]">Let&apos;s shrink it!</span>
       </h2>
       <form
         onSubmit={handleShorten}
@@ -29,20 +30,16 @@ const LandingPage = () => {
       >
         <Input
           type="url"
-          placeholder="Enter your loooong URL"
+          placeholder="Enter URL "
           value={longUrl}
           onChange={(e) => setLongUrl(e.target.value)}
-          className="h-full flex-1 py-4 px-4"
+          className="h-full flex-1 py-4 px-4 bg-white"
         />
-        <Button type="submit" className="h-full" variant="destructive">
-          Shorten!
+        <Button type="submit" className="h-full bg-[#7F57F1] ml-2" variant="destructive">
+          Shorten
         </Button>
       </form>
-      <img
-        src="/banner1.jpg" // replace with 2 in small screens
-        className="w-full my-11 md:px-11"
-      />
-      <Accordion type="multiple" collapsible className="w-full md:px-11">
+      <Accordion type="multiple" collapsible className="w-full md:px-11 mt-80">
         <AccordionItem value="item-1">
           <AccordionTrigger>
             How does the Trimrr URL shortener works?

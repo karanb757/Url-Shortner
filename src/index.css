@@ -72,3 +72,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+*{
+  color: black;
+  background-color: white;
+}
